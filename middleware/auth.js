@@ -12,7 +12,7 @@ try{
             id:decoded.id
         }
     })
-    //res.json({message: decoded})
+    res.json({message: decoded})
     req.user= user
     next()
 }
