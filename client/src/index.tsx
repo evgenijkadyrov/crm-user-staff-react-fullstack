@@ -8,6 +8,7 @@ import {Paths} from "../src/Paths";
 import {Login} from "../src/pages/login";
 import {Register} from "../src/pages/register";
 import {ConfigProvider, theme} from "antd";
+import {Auth} from "../src/features/auth/auth";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -30,8 +31,9 @@ root.render(
             <ConfigProvider theme={{
                 algorithm: theme.darkAlgorithm
             }}>
-
-                <RouterProvider router={router}/>
+                <Auth>
+                    <RouterProvider router={router}/>
+                </Auth>
             </ConfigProvider>
 
         </Provider>
