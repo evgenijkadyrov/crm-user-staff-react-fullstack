@@ -16,7 +16,7 @@ export const Login = () => {
                     <Form onFinish={() => null}>
                         <InputCustom name={"email"} placeholder={"email"} type={"email"}/>
                         <PasswordInput name={"password"} placeholder={"password"}/>
-                        <ButtonCustom type={"primary"} htmlType={"submit" } >{"Log in"}</ButtonCustom>
+                        <ButtonCustom type={"primary"} htmlType={"submit" } >Log in</ButtonCustom>
                     </Form>
                     <Space direction={"vertical"} size={"large"}>
                         <Typography.Text>
