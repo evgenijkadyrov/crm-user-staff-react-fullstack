@@ -1,4 +1,4 @@
-import {Employee, User} from "@prisma/client";
+import {Employee} from "@prisma/client";
 import {createSlice} from "@reduxjs/toolkit";
 import {employeesApi} from "../../app/services/employees";
 import {RootState} from "../../app/store";
@@ -7,22 +7,23 @@ interface InitialState {
     employees: Employee[] | null,
 
 }
-const initialState:InitialState= {
-    employees:null
+
+const initialState: InitialState = {
+    employees: null
 }
 
-const slice= createSlice({
+const slice = createSlice({
     name: 'employees',
     initialState,
     reducers: {
-        logout: ()=>initialState
+        logout: () => initialState
     },
     extraReducers: builder => {
         builder
-            .addMatcher(employeesApi.endpoints.getAllEmployees.matchFulfilled, (state, action)=>{
-                state.employees= action.payload
+            .addMatcher(employeesApi.endpoints.getAllEmployees.matchFulfilled, (state, action) => {
+                state.employees = action.payload
             })
     }
 })
 export default slice.reducer
-export const selectEmployees = (state:RootState)=>state.employees
+export const selectEmployees = (state: RootState) => state.employees
