@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Layout} from "../../components/layout";
 import {ButtonCustom} from "../../components/buttonCustom";
 import {useGetAllEmployeesQuery} from "../../app/services/employees";
@@ -8,6 +8,8 @@ import {ColumnsType} from "antd/es/table";
 import {Employee} from "@prisma/client";
 import {useNavigate} from "react-router-dom";
 import {Paths} from "../../Paths";
+import {useSelector} from "react-redux";
+import {selectUser} from "../../features/auth/authSlice";
 
 const columns: ColumnsType<Employee> = [
     {
@@ -32,11 +34,20 @@ const columns: ColumnsType<Employee> = [
     }
 ]
 export const Employees = () => {
+    const user= useSelector(selectUser)
     const navigate = useNavigate()
     const {data, isLoading} = useGetAllEmployeesQuery()
+    useEffect(()=>{
+        if(!user){
+            navigate(Paths.login)
+        }
+    },[user, navigate])
+    const handlerAddEmployee=()=>{
+        navigate(Paths.employeeAdd)
+    }
     return (
         <Layout>
-            <ButtonCustom type={'primary'} onClick={() => null}
+            <ButtonCustom type={'primary'} onClick={handlerAddEmployee}
                           icon={<PlusCircleOutlined/>}>
                 Add employee
             </ButtonCustom>

@@ -10,6 +10,7 @@ import {Register} from "../src/pages/register";
 import {ConfigProvider, theme} from "antd";
 import {Auth} from "../src/features/auth/auth";
 import {Employees} from "../src/pages/employees";
+import {AddImployee} from "./pages/addEmployee";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -24,6 +25,10 @@ const router = createBrowserRouter([{
     {
         path: Paths.home,
         element: <Employees/>
+    },
+    {
+        path: Paths.employeeAdd,
+        element: <AddImployee/>
     }
 ])
 root.render(
