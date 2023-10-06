@@ -13,6 +13,7 @@ import {Employees} from "../src/pages/employees";
 import {AddImployee} from "./pages/addEmployee";
 import {Status} from "../src/pages/ststus";
 import {Employee} from "../src/pages/employee";
+import {EditEmployee} from "../src/pages/editEployee";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -39,6 +40,10 @@ const router = createBrowserRouter([{
     {
         path: `${Paths.employee}/:id`,
         element: <Employee/>
+    },
+    {
+        path: `${Paths.employeeEdit}/:id`,
+        element: <EditEmployee/>
     },
 ])
 root.render(
