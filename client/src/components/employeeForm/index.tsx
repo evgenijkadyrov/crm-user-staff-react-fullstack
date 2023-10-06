@@ -22,7 +22,7 @@ export const EmployeeForm: React.FC<Props<Employee>> = ({
             <Layout>
                 <Row align="middle" justify="center">
                     <Card title={title} style={{width: "30rem"}}>
-                        <Form name={'employee-form'} onFinish={() => onFinish}
+                        <Form name={'employee-form'} onFinish={onFinish}
                               initialValues={employee}>
                             <InputCustom name={"firstName"} placeholder={"firstName"}/>
                             <InputCustom name={"lastName"} placeholder={"lastName"}/>

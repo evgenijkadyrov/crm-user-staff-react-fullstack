@@ -13,7 +13,7 @@ const addEmployee = async (req, res) => {
     try {
         const data = req.body
         if (!data.firstName || !data.lastName || !data.age || !data.adress) {
-            res.status(400).json({message: 'Заполните все поля'})
+           return res.status(400).json({message: 'Заполните все поля'})
         }
         const employee = await prisma.employee.create({
 
@@ -64,7 +64,7 @@ const employee = async (req, res) => {
                 id
             }
         })
-        res.status(200).json({message: employee})
+        res.status(200).json(employee)
     } catch (err) {
         res.status(500).json({message: 'не удалось получить сотрудника'})
     }

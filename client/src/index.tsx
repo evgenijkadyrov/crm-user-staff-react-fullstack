@@ -11,6 +11,7 @@ import {ConfigProvider, theme} from "antd";
 import {Auth} from "../src/features/auth/auth";
 import {Employees} from "../src/pages/employees";
 import {AddImployee} from "./pages/addEmployee";
+import {Status} from "../src/pages/ststus";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -29,7 +30,11 @@ const router = createBrowserRouter([{
     {
         path: Paths.employeeAdd,
         element: <AddImployee/>
-    }
+    },
+    {
+        path: `${Paths.status}/:status`,
+        element: <Status/>
+    },
 ])
 root.render(
     <React.StrictMode>
